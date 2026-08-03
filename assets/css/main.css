@@ -221,7 +221,10 @@ time { flex: 0 0 auto; color: #405a70; font-size: 0.8rem; font-weight: 750; }
 .skill-list strong, .award-list strong { font-size: 0.86rem; }
 .skill-list span, .award-list span { color: var(--muted); font-size: 0.8rem; }
 .publication { margin: 0; color: #344e63; font-size: 0.84rem; }
+.publication + .publication { margin-top: 7px; }
 .publication strong { color: var(--ink); font-weight: 750; }
+.publication a { text-decoration-color: #9fc5df; text-underline-offset: 2px; }
+.publication a:hover { color: var(--blue); }
 .publication em { margin-left: 5px; color: var(--blue); font-style: normal; font-weight: 750; }
 
 .site-footer {

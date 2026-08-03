@@ -46,7 +46,7 @@
     <article class="resume-sheet" id="resume">
       <header class="resume-header">
         <div class="identity">
-          <p class="eyebrow">SYSTEMS / HPC / ARCHITECTURE</p>
+          <p class="eyebrow">AI SYSTEMS / ASCEND / HPC</p>
           <h1>{{ $resume.name }}</h1>
           <p class="role">{{ $resume.role }}</p>
           <div class="contacts" aria-label="Contact information">
@@ -139,7 +139,7 @@
         <h2>{{ $resume.labels.publications }}</h2>
         <div class="section-body">
           {{ range $resume.publications }}
-            <p class="publication"><span>{{ .authors }}</span> <strong>{{ .title }}</strong> <em>{{ .venue }}</em></p>
+            <p class="publication"><span>{{ .authors }}</span> <strong>{{ if .href }}<a href="{{ .href }}" target="_blank" rel="noreferrer">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</strong> <em>{{ .venue }}</em></p>
           {{ end }}
         </div>
       </section>
