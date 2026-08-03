@@ -1,0 +1,21 @@
+baseURL = "https://kirrito-k423.github.io/ResumeOnline/"
+title = "Shaojie Tan | Resume"
+defaultContentLanguage = "zh"
+defaultContentLanguageInSubdir = true
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+enableRobotsTXT = true
+
+[params]
+  description = "Computer architecture, high-performance computing, and systems resume of Shaojie Tan."
+
+[languages]
+  [languages.zh]
+    languageName = "中文"
+    languageCode = "zh-CN"
+    weight = 1
+    title = "谭邵杰 | 计算机技术简历"
+  [languages.en]
+    languageName = "English"
+    languageCode = "en-US"
+    weight = 2
+    title = "Shaojie Tan | Systems Resume"

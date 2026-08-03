@@ -1,0 +1,155 @@
+{{- $resume := index .Site.Data.resume .Site.Language.Lang -}}
+{{- $style := resources.Get "css/main.css" | minify | fingerprint -}}
+{{- $script := resources.Get "js/main.js" | minify | fingerprint -}}
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ $resume.summary }}">
+  <meta name="theme-color" content="#0b5ea8">
+  <meta property="og:title" content="{{ $resume.name }} · {{ $resume.role }}">
+  <meta property="og:description" content="{{ $resume.summary }}">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <title>{{ .Site.Title }}</title>
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+</head>
+<body>
+  <header class="site-header screen-only">
+    <a class="brand" href="{{ .Site.Home.RelPermalink }}" aria-label="{{ $resume.name }}">
+      <span class="brand-mark">ST</span>
+      <span>{{ $resume.name }}</span>
+    </a>
+    <nav class="site-nav" aria-label="Resume actions">
+      {{ range .Translations }}
+        <a class="nav-link" href="{{ .RelPermalink }}">{{ $resume.labels.language }}</a>
+      {{ end }}
+      <a class="nav-link" href="https://github.com/Kirrito-k423/ResumeOnline">{{ $resume.labels.source }}</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <div class="resume-actions screen-only">
+      <p>{{ $resume.labels.updated }}</p>
+      <div class="action-buttons">
+        <a class="button button-primary" href="{{ printf "files/resume-%s.pdf" .Site.Language.Lang | relURL }}" download>
+          <span aria-hidden="true">↓</span>{{ $resume.labels.download }}
+        </a>
+        <button class="button button-secondary" type="button" data-print>
+          <span aria-hidden="true">↗</span>{{ $resume.labels.print }}
+        </button>
+      </div>
+    </div>
+
+    <article class="resume-sheet" id="resume">
+      <header class="resume-header">
+        <div class="identity">
+          <p class="eyebrow">SYSTEMS / HPC / ARCHITECTURE</p>
+          <h1>{{ $resume.name }}</h1>
+          <p class="role">{{ $resume.role }}</p>
+          <div class="contacts" aria-label="Contact information">
+            {{ range $resume.contacts }}
+              <a href="{{ .href }}"{{ if hasPrefix .href "http" }} target="_blank" rel="noreferrer"{{ end }}>
+                <span class="contact-dot" aria-hidden="true"></span>{{ .text }}
+              </a>
+            {{ end }}
+          </div>
+        </div>
+        <figure class="portrait-wrap">
+          <img class="portrait" src="{{ "images/profile.jpg" | relURL }}" alt="{{ $resume.name }}" width="190" height="266">
+        </figure>
+      </header>
+
+      <p class="summary">{{ $resume.summary }}</p>
+
+      <div class="highlights" aria-label="Career highlights">
+        {{ range $resume.highlights }}
+          <div class="highlight">
+            <strong>{{ .value }}</strong>
+            <span>{{ .label }}</span>
+          </div>
+        {{ end }}
+      </div>
+
+      <section class="resume-section">
+        <h2>{{ $resume.labels.education }}</h2>
+        <div class="section-body compact-list">
+          {{ range $resume.education }}
+            <div class="education-row">
+              <div><strong>{{ .school }}</strong><span>{{ .degree }}</span></div>
+              <time>{{ .period }}</time>
+            </div>
+          {{ end }}
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2>{{ $resume.labels.experience }}</h2>
+        <div class="section-body entries">
+          {{ range $resume.experience }}
+            <article class="entry">
+              <div class="entry-heading">
+                <div><h3>{{ .organization }}</h3><p>{{ .title }}</p></div>
+                <time>{{ .period }}</time>
+              </div>
+              <ul>{{ range .bullets }}<li>{{ . }}</li>{{ end }}</ul>
+            </article>
+          {{ end }}
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2>{{ $resume.labels.projects }}</h2>
+        <div class="section-body entries">
+          {{ range $resume.projects }}
+            <article class="entry">
+              <div class="entry-heading">
+                <div><h3>{{ .title }}</h3><p>{{ .meta }}</p></div>
+                <time>{{ .period }}</time>
+              </div>
+              <ul>{{ range .bullets }}<li>{{ . }}</li>{{ end }}</ul>
+            </article>
+          {{ end }}
+        </div>
+      </section>
+
+      <div class="resume-grid">
+        <section class="resume-section">
+          <h2>{{ $resume.labels.skills }}</h2>
+          <div class="section-body skill-list">
+            {{ range $resume.skills }}
+              <div><strong>{{ .category }}</strong><span>{{ .items }}</span></div>
+            {{ end }}
+          </div>
+        </section>
+
+        <section class="resume-section">
+          <h2>{{ $resume.labels.awards }}</h2>
+          <div class="section-body award-list">
+            {{ range $resume.awards }}
+              <div><strong>{{ .name }}</strong><span>{{ .result }}</span></div>
+            {{ end }}
+          </div>
+        </section>
+      </div>
+
+      <section class="resume-section publication-section">
+        <h2>{{ $resume.labels.publications }}</h2>
+        <div class="section-body">
+          {{ range $resume.publications }}
+            <p class="publication"><span>{{ .authors }}</span> <strong>{{ .title }}</strong> <em>{{ .venue }}</em></p>
+          {{ end }}
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer screen-only">
+    <span>© {{ now.Year }} {{ $resume.name }}</span>
+    <span>Built with Hugo · Typeset with resume-ng</span>
+  </footer>
+  <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
+</body>
+</html>

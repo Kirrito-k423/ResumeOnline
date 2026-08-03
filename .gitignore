@@ -1,0 +1,12 @@
+/public/
+/resources/
+/.hugo_build.lock
+/tmp/
+/output/
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.xdv
+
