@@ -153,6 +153,30 @@
           {{ end }}
         </div>
       </section>
+
+      <section class="resume-section ai-practice-section">
+        <h2>{{ $resume.labels.ai_projects }}</h2>
+        <p class="section-intro">{{ $resume.ai_intro }}</p>
+        <div class="ai-project-grid">
+          {{ range $resume.ai_projects }}
+            <article class="ai-project-card">
+              <div class="project-title-row">
+                <h3>{{ .title }}</h3>
+                <span class="project-status">{{ .status }}</span>
+              </div>
+              <p>{{ .description }}</p>
+              <div class="entry-links">
+                {{ range .links }}<a href="{{ .href }}" target="_blank" rel="noreferrer">{{ .label }}</a>{{ end }}
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      </section>
+
+      <section class="resume-section vision-section">
+        <h2>{{ $resume.labels.vision }}</h2>
+        <blockquote>{{ $resume.vision }}</blockquote>
+      </section>
     </article>
   </main>
 

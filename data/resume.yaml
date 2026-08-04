@@ -14,6 +14,8 @@ zh:
     awards: "竞赛获奖"
     skills: "技术能力"
     publications: "发表论文"
+    ai_projects: "AI 实践与工程自动化"
+    vision: "职业愿景"
   contacts:
     - text: "943648187@qq.com"
       href: "mailto:943648187@qq.com"
@@ -129,6 +131,41 @@ zh:
       title: "Quantifying Throughput of Basic Blocks on ARM Microarchitectures by Static Code Analyzers: A Case Study on Kunpeng 920"
       venue: "IEEE HPCC 2022"
       href: "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=3-W0pa0AAAAJ&citation_for_view=3-W0pa0AAAAJ:u-x6o8ySG0sC"
+  ai_intro: "积极拥抱 AI，以真实项目加速技术理解与自动化开发：梳理技术演进、持续跟踪项目进展、组织有状态 Agent Teams，并探索以性能建模自动化部分优化流程。"
+  ai_projects:
+    - title: "AIHisTrendFuture"
+      status: "已上线"
+      description: "以可追溯的时间图谱梳理 AI 技术历史、趋势与未来，用一手证据、推导链和置信度沉淀技术认知。"
+      links:
+        - label: "GitHub"
+          href: "https://github.com/Kirrito-k423/AIHisTrendFuture"
+        - label: "在线网站"
+          href: "https://ai-history-trend-future.fast-fly-6396.chatgpt.site"
+    - title: "DevTracking"
+      status: "实践中"
+      description: "将计划、进展、阻塞、需求与交付证据沉淀为可追踪工作流和可视化看板，持续形成项目上下文。"
+      links:
+        - label: "GitHub"
+          href: "https://github.com/Kirrito-k423/DevTracking"
+    - title: "IPD-Teams"
+      status: "实验中"
+      description: "借鉴 IPD 角色分工组织有状态的软件迭代 Agent Teams，探索多 Agent 协作、交接与质量闭环。"
+      links:
+        - label: "GitHub"
+          href: "https://github.com/Kirrito-k423/IPD-Teams"
+    - title: "AutoResearch"
+      status: "开发中"
+      description: "构建本地驱动的大模型训练与调试闭环，将实验记录、性能指标、设计取舍和复盘沉淀为可复用资产。"
+      links:
+        - label: "GitHub"
+          href: "https://github.com/Kirrito-k423/AutoResearch"
+    - title: "ProgramModeling"
+      status: "开发中"
+      description: "围绕显存、性能、MFU 与并行策略构建可执行建模图，逐步连接配置推荐、Agent 验证与自动校准。"
+      links:
+        - label: "GitHub"
+          href: "https://github.com/Kirrito-k423/ProgramModeling"
+  vision: "以第一性原理洞察本质，以系统创新放大智能价值。"
 
 en:
   name: "Shaojie Tan"
@@ -146,6 +183,8 @@ en:
     awards: "Awards"
     skills: "Technical Skills"
     publications: "Publications"
+    ai_projects: "AI Practice & Engineering Automation"
+    vision: "Career Vision"
   contacts:
     - text: "943648187@qq.com"
       href: "mailto:943648187@qq.com"
@@ -261,3 +300,38 @@ en:
       title: "Quantifying Throughput of Basic Blocks on ARM Microarchitectures by Static Code Analyzers: A Case Study on Kunpeng 920"
       venue: "IEEE HPCC 2022"
       href: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3-W0pa0AAAAJ&citation_for_view=3-W0pa0AAAAJ:u-x6o8ySG0sC"
+  ai_intro: "I embrace AI through hands-on projects that accelerate technical understanding and development automation: mapping technology evolution, tracking delivery, organizing stateful agent teams, and exploring performance-model-driven optimization."
+  ai_projects:
+    - title: "AIHisTrendFuture"
+      status: "Live"
+      description: "An evidence-backed timeline of AI history, trends, and future, preserving primary sources, derivation chains, and confidence levels."
+      links:
+        - label: "GitHub"
+          href: "https://github.com/Kirrito-k423/AIHisTrendFuture"
+        - label: "Live Site"
+          href: "https://ai-history-trend-future.fast-fly-6396.chatgpt.site"
+    - title: "DevTracking"
+      status: "In use"
+      description: "Turns plans, progress, blockers, demands, and delivery evidence into traceable workflows and visual dashboards with durable project context."
+      links:
+        - label: "GitHub"
+          href: "https://github.com/Kirrito-k423/DevTracking"
+    - title: "IPD-Teams"
+      status: "Experimental"
+      description: "Applies IPD-style roles to stateful software-delivery agent teams, exploring multi-agent collaboration, handoffs, and quality loops."
+      links:
+        - label: "GitHub"
+          href: "https://github.com/Kirrito-k423/IPD-Teams"
+    - title: "AutoResearch"
+      status: "In development"
+      description: "Builds a local-first LLM training and debugging loop that turns experiments, metrics, design tradeoffs, and retrospectives into reusable assets."
+      links:
+        - label: "GitHub"
+          href: "https://github.com/Kirrito-k423/AutoResearch"
+    - title: "ProgramModeling"
+      status: "In development"
+      description: "Builds executable graphs for memory, performance, MFU, and parallelism, progressing toward configuration recommendation, agent verification, and calibration."
+      links:
+        - label: "GitHub"
+          href: "https://github.com/Kirrito-k423/ProgramModeling"
+  vision: "See the essence through first principles; amplify the value of intelligence through systems innovation."

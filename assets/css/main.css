@@ -239,6 +239,39 @@ time { flex: 0 0 auto; color: #405a70; font-size: 0.8rem; font-weight: 750; }
 .publication a:hover { color: var(--blue); }
 .publication em { margin-left: 5px; color: var(--blue); font-style: normal; font-weight: 750; }
 
+.section-intro { margin: 0 0 13px; color: #344e63; font-size: 0.88rem; }
+.ai-project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+.ai-project-card {
+  padding: 14px 15px;
+  border: 1px solid #d5e3ee;
+  border-radius: 13px;
+  background: linear-gradient(145deg, #fff, #f5fafe);
+}
+.project-title-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.project-title-row h3 { margin: 0; font-size: 0.91rem; }
+.project-status {
+  flex: 0 0 auto;
+  color: var(--blue-dark);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+.ai-project-card p { margin: 6px 0 0; color: var(--muted); font-size: 0.78rem; }
+.ai-project-card .entry-links { margin-top: 8px; }
+.ai-project-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.vision-section blockquote {
+  margin: 0;
+  padding: 18px 22px;
+  border-left: 4px solid var(--blue);
+  border-radius: 0 13px 13px 0;
+  color: #0b3558;
+  background: linear-gradient(100deg, var(--blue-soft), #f8fbfe);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
 .site-footer {
   width: min(1120px, calc(100% - 40px));
   min-height: 74px;
@@ -270,6 +303,9 @@ time { flex: 0 0 auto; color: #405a70; font-size: 0.8rem; font-weight: 750; }
   .highlights { grid-template-columns: 1fr; }
   .education-row, .entry-heading { align-items: flex-start; flex-direction: column; gap: 2px; }
   .resume-grid { grid-template-columns: 1fr; gap: 0; }
+  .ai-project-grid { grid-template-columns: 1fr; }
+  .ai-project-card:last-child:nth-child(odd) { grid-column: auto; }
+  .vision-section blockquote { padding: 14px 16px; font-size: 1rem; }
   .site-footer { align-items: flex-start; flex-direction: column; justify-content: center; }
 }
 
@@ -319,4 +355,11 @@ time { flex: 0 0 auto; color: #405a70; font-size: 0.8rem; font-weight: 750; }
   .skill-list, .award-list { gap: 1mm; }
   .skill-list strong, .award-list strong { font-size: 7.2pt; }
   .skill-list span, .award-list span, .publication { font-size: 6.8pt; }
+  .section-intro { margin-bottom: 1.4mm; font-size: 6.8pt; }
+  .ai-project-grid { gap: 1.4mm; }
+  .ai-project-card { padding: 1.4mm 1.8mm; border-radius: 1.5mm; }
+  .project-title-row h3 { font-size: 7.2pt; }
+  .project-status { font-size: 5.8pt; }
+  .ai-project-card p { margin-top: 0.5mm; font-size: 6.2pt; }
+  .vision-section blockquote { padding: 1.5mm 2.2mm; font-size: 8.5pt; }
 }
