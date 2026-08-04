@@ -4,7 +4,7 @@
 
 \usepackage{graphicx}
 \usepackage{tikz}
-\linespread{1.04}\selectfont
+\linespread{1.00}\selectfont
 
 \begin{document}
 
@@ -22,7 +22,7 @@
 
 \ResumeTitle
 
-\noindent 华为 Ascend 训练开发工程师，中国科学技术大学计算机科学与技术硕士。聚焦 Ascend NPU 上的大模型训练推理优化、多模态模型迁移、分布式并行、RL 后训练与量化加速，并具备体系结构与多节点 CPU/GPU 优化背景。
+\noindent 华为 Ascend 训练开发工程师，中国科学技术大学计算机科学与技术硕士。聚焦 Ascend NPU 上的大模型训练推理优化、多模态模型迁移、分布式并行、RL 后训练与量化加速，并具备体系结构与多节点 CPU/GPU/NPU 优化背景。
 
 \section{教育经历}
 \ResumeItem{中国科学技术大学}[计算机科学与技术（计算机体系结构）· 硕士][2021.09--2024.06]
@@ -32,8 +32,8 @@
 \ResumeItem{华为 Ascend 训练开发部}[AI 训练推理与框架性能优化][2024 H2--至今]
 \begin{itemize}
   \item 优化 PyTorch / torch\_npu 训练链路，覆盖细粒度 CPU 绑核、算子 Lazy Init、参数寻优和 L2 Cache；完成 OpenSoraPlan、DeepSeek-VL2、GLM-4.1V 的 Megatron / FSDP 适配。
-  \item 参与 DeepSeek-R1、Qwen3 大 EP 推理与 Attention INT8 量化；适配 UniVL、verl + Qwen2.5-VL 多模态 RL 链路，将生成模型 RL 分数由 0.4 提升至 0.8。
-  \item Intern-S1 Pro 推理性能提升 2 倍；Intern-S2 Preview 从 0.12 倍 H200 优化至 0.72 倍 H200。
+  \item 参与 DeepSeek-R1、Qwen3 大 EP 推理与 Attention INT8 量化；适配 UniVL、verl + Qwen2.5-VL 及 DanceGRPO，将生成模型 RL 分数由 0.4 提升至 0.8。
+  \item 通过 NPU 亲和的 GMM 权重布局与高效后处理，使 Intern-S1 Pro 推理性能翻倍（\ResumeUrl{https://kirrito-k423.github.io/ResumeOnline/files/xtuner-vllm-rl-architecture-report.pdf}{技术报告}）；通过 GDN Triton 算子和框架优化，使 Intern-S2 Preview（Qwen3.5-35B）SFT 从 0.12 倍提升至 0.72 倍 H200（\ResumeUrl{https://kirrito-k423.github.io/ResumeOnline/files/qwen35-optimization-design.pdf}{技术报告}）。
 \end{itemize}
 
 \ResumeItem{华为 2012 实验室}[暑期实习 · 存内计算 PIM 任务调度研究][2023.07--2023.09]
@@ -49,21 +49,25 @@
 \end{itemize}
 
 \section{代表项目}
+\ResumeItem{浦江实验室 Intern-S2 Preview SFT 优化}[Qwen3.5-35B][2026.04--2026.06]
+\begin{itemize}
+  \item 定位 GDN 占开箱耗时 70\%+，消除 causal\_conv1d / KKT 路径的 transpose，将关键低效 Triton 实现替换或优化为 Ascend C，并扩展 chunk size 128。
+  \item 优化 solve-tril、KKT、RMSNormGated、CV 核同步、绑核与 SP2 通信等算子和框架路径，使 SFT 从 0.12 倍提升至 0.72 倍 H200。
+\end{itemize}
+
 \ResumeItem{QuEST 多 GPU 量子门电路模拟}[ASC20-21 决赛一等奖][2020.11--2021.05]
 \begin{itemize}
-  \item 使用 CUDA-aware MPI 直接访问 GPU 显存，以多 stream 和 buffer 重叠计算与通信，并用 cuBLAS 替代向量点积和规约操作。
-  \item 在 4 机 8 张 A100 上将规模从 30 拓展至 34 qubits，相较 CPU 系统节约 200+ GB 内存。
+  \item 使用 CUDA-aware MPI、多 stream / buffer 与 cuBLAS，在 4 机 8 张 A100 上将规模从 30 拓展至 34 qubits，相较 CPU 系统节约 200+ GB 内存。
 \end{itemize}
 
 \ResumeItem{大数据串行应用的 CPU 多节点优化}[IPCC 2022 全国三等奖 · 5/130+][2022.07--2022.11]
 \begin{itemize}
-  \item 结合循环展开、手动向量化、OpenMP 与 MPI 实现多层并行，并优化数据布局、混合精度与 PSRS 等热点算法。
-  \item 在 AMD EPYC 7452 平台实现双节点 10,000 倍、单节点最高 2,800,000 倍加速。
+  \item 结合循环展开、向量化、OpenMP 与 MPI 优化数据布局、混合精度和 PSRS，在 AMD EPYC 7452 上实现双节点 10,000 倍、单节点最高 2,800,000 倍加速。
 \end{itemize}
 
 \section{技术能力}
 \begin{itemize}
-  \item \textbf{AI 框架：}PyTorch、torch\_npu、Megatron、FSDP、verl；\textbf{大模型系统：}Ascend NPU 训练推理、多模态、RL、Expert Parallel、Attention INT8 量化。
+  \item \textbf{AI 框架：}PyTorch、torch\_npu、Megatron、FSDP、verl、vLLM；\textbf{算子与系统：}Triton、Ascend C、Ascend NPU 训练推理、多模态、RL、Expert Parallel、Attention INT8 量化。
   \item \textbf{编程与并行：}C、C++、Python、Shell、MPI、OpenMP、CUDA、cuBLAS；\textbf{体系结构：}AArch64、CPU 微架构、PIM、性能建模、缓存与带宽优化。
 \end{itemize}
 

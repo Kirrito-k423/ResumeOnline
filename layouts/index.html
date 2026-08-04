@@ -95,6 +95,11 @@
                 <time>{{ .period }}</time>
               </div>
               <ul>{{ range .bullets }}<li>{{ . }}</li>{{ end }}</ul>
+              {{ with .links }}
+                <div class="entry-links">
+                  {{ range . }}<a href="{{ .href | relURL }}" target="_blank" rel="noreferrer">{{ .label }}</a>{{ end }}
+                </div>
+              {{ end }}
             </article>
           {{ end }}
         </div>
@@ -110,6 +115,11 @@
                 <time>{{ .period }}</time>
               </div>
               <ul>{{ range .bullets }}<li>{{ . }}</li>{{ end }}</ul>
+              {{ with .links }}
+                <div class="entry-links">
+                  {{ range . }}<a href="{{ .href | relURL }}" target="_blank" rel="noreferrer">{{ .label }}</a>{{ end }}
+                </div>
+              {{ end }}
             </article>
           {{ end }}
         </div>

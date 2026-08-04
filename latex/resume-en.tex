@@ -4,7 +4,7 @@
 
 \usepackage{graphicx}
 \usepackage{tikz}
-\linespread{1.04}\selectfont
+\linespread{1.00}\selectfont
 
 \begin{document}
 
@@ -22,7 +22,7 @@
 
 \ResumeTitle
 
-\noindent Huawei Ascend training systems engineer with an M.S. in Computer Science from USTC. Focused on large-model training and inference optimization on Ascend NPUs, multimodal migration, distributed parallelism, RL post-training, and quantization, backed by computer-architecture and multi-node CPU/GPU optimization experience.
+\noindent Huawei Ascend training systems engineer with an M.S. in Computer Science from USTC. Focused on large-model training and inference optimization on Ascend NPUs, multimodal migration, distributed parallelism, RL post-training, and quantization, backed by computer-architecture and multi-node CPU/GPU/NPU optimization experience.
 
 \section{Education}
 \ResumeItem{University of Science and Technology of China}[M.S. in Computer Science][Sep 2021--Jun 2024]
@@ -32,8 +32,8 @@
 \ResumeItem{Huawei Ascend}[AI Systems Engineer][2024 H2--Present]
 \begin{itemize}
   \item Optimized PyTorch / torch\_npu training paths via CPU affinity, operator Lazy Init, parameter tuning, and L2 cache; adapted OpenSoraPlan, DeepSeek-VL2, and GLM-4.1V with Megatron / FSDP.
-  \item Contributed to DeepSeek-R1 and Qwen3 large-EP inference and Attention INT8 quantization; adapted UniVL and verl + Qwen2.5-VL multimodal RL, raising a generative-model RL score from 0.4 to 0.8.
-  \item Doubled Intern-S1 Pro inference and improved Intern-S2 Preview from 0.12x to 0.72x H200 performance.
+  \item Contributed to DeepSeek-R1 and Qwen3 large-EP inference and Attention INT8 quantization; adapted UniVL, verl + Qwen2.5-VL, and DanceGRPO, raising a generative-model RL score from 0.4 to 0.8.
+  \item Doubled Intern-S1 Pro inference through NPU-friendly GMM layouts and efficient post-processing (\ResumeUrl{https://kirrito-k423.github.io/ResumeOnline/files/xtuner-vllm-rl-architecture-report.pdf}{report}); optimized GDN Triton kernels and the framework to improve Intern-S2 Preview (Qwen3.5-35B) SFT from 0.12x to 0.72x H200 (\ResumeUrl{https://kirrito-k423.github.io/ResumeOnline/files/qwen35-optimization-design.pdf}{report}).
 \end{itemize}
 
 \ResumeItem{Huawei 2012 Laboratories}[Research Intern · PIM Task Scheduling][Jul 2023--Sep 2023]
@@ -49,21 +49,25 @@
 \end{itemize}
 
 \section{Selected Projects}
+\ResumeItem{Pujiang Lab · Intern-S2 Preview SFT Optimization}[Qwen3.5-35B][Apr 2026--Jun 2026]
+\begin{itemize}
+  \item Profiled GDN at 70\%+ of out-of-box runtime, removed transpose overhead in causal\_conv1d / KKT, replaced or optimized key Triton paths with Ascend C, and added chunk-size 128 support.
+  \item Optimized solve-tril, KKT, RMSNormGated, CV-core synchronization, CPU affinity, and SP2 communication, improving SFT from 0.12x to 0.72x H200.
+\end{itemize}
+
 \ResumeItem{Multi-GPU Quantum Circuit Simulation with QuEST}[ASC20-21 First Prize][Nov 2020--May 2021]
 \begin{itemize}
-  \item Enabled direct GPU-memory access with CUDA-aware MPI, overlapped computation and communication, and replaced reductions with cuBLAS.
-  \item Scaled from 30 to 34 qubits on 8 NVIDIA A100 GPUs across 4 nodes, saving more than 200 GB versus the CPU system.
+  \item Used CUDA-aware MPI, streams / buffers, and cuBLAS to scale from 30 to 34 qubits on 8 A100 GPUs across 4 nodes, saving 200+ GB versus the CPU system.
 \end{itemize}
 
 \ResumeItem{Multi-node CPU Optimization}[IPCC 2022 Third Prize · 5/130+][Jul 2022--Nov 2022]
 \begin{itemize}
-  \item Combined loop unrolling, manual vectorization, OpenMP, and MPI; optimized data layout, mixed precision, and PSRS-based hotspots.
-  \item Reached 10,000× speedup on dual AMD EPYC 7452 nodes and up to 2,800,000× on a single node.
+  \item Combined unrolling, vectorization, OpenMP, and MPI with data-layout, mixed-precision, and PSRS optimizations; reached 10,000x speedup on two AMD EPYC 7452 nodes and up to 2,800,000x on one node.
 \end{itemize}
 
 \section{Technical Skills}
 \begin{itemize}
-  \item \textbf{AI frameworks:} PyTorch, torch\_npu, Megatron, FSDP, verl. \textbf{LLM systems:} Ascend training/inference, multimodal models, RL, Expert Parallel, Attention INT8 quantization.
+  \item \textbf{AI frameworks:} PyTorch, torch\_npu, Megatron, FSDP, verl, vLLM. \textbf{Kernels \& systems:} Triton, Ascend C, Ascend training/inference, multimodal models, RL, Expert Parallel, Attention INT8 quantization.
   \item \textbf{Programming \& parallel:} C, C++, Python, Shell, MPI, OpenMP, CUDA, cuBLAS. \textbf{Architecture:} AArch64, CPU microarchitecture, PIM, performance modeling, cache and bandwidth optimization.
 \end{itemize}
 

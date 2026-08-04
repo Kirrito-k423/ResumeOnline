@@ -1,7 +1,7 @@
 zh:
   name: "谭邵杰"
   role: "AI 系统 · 昇腾训练推理 · 高性能计算"
-  summary: "中国科学技术大学计算机科学与技术硕士，现任华为昇腾训练开发工程师。聚焦 Ascend NPU 上的大模型训练推理框架优化、多模态模型迁移、分布式并行、强化学习与量化加速，并具备计算机体系结构和多节点 CPU/GPU 优化背景。"
+  summary: "中国科学技术大学计算机科学与技术硕士，现任华为昇腾训练开发工程师。聚焦 Ascend NPU 上的大模型训练推理框架优化、多模态模型迁移、分布式并行、强化学习与量化加速，并具备计算机体系结构和多节点 CPU/GPU/NPU 优化背景。"
   labels:
     language: "English"
     download: "下载中文 PDF"
@@ -48,7 +48,13 @@ zh:
       bullets:
         - "围绕 PyTorch / torch_npu 优化 NPU 训练链路，覆盖细粒度 CPU 绑核、算子 Lazy Init、训练参数寻优与 L2 Cache 利用。"
         - "完成 OpenSoraPlan、DeepSeek-VL2、GLM-4.1V 等多模态模型的 Megatron / FSDP 适配，并参与 DeepSeek-R1、Qwen3 大 EP 推理与 Attention INT8 量化攻关。"
-        - "适配 UniVL、verl + Qwen2.5-VL 等多模态 RL 链路；将生成模型 RL 分数由 0.4 提升至 0.8，Intern-S1 Pro 推理性能翻倍，Intern-S2 Preview 由 0.12× 优化至 0.72× H200。"
+        - "适配 UniVL、verl + Qwen2.5-VL 等多模态 RL 链路；适配 DanceGRPO，将生成模型 RL 分数由 0.4 提升至 0.8。"
+        - "通过 NPU 亲和的 GMM 权重布局与高效后处理，使 Intern-S1 Pro 推理性能翻倍；通过 GDN Triton 算子和框架优化，使 Intern-S2 Preview（Qwen3.5-35B）SFT 由 0.12× 提升至 0.72× H200。"
+      links:
+        - label: "XTuner + vLLM 技术报告"
+          href: "files/xtuner-vllm-rl-architecture-report.pdf"
+        - label: "Qwen3.5 优化技术报告"
+          href: "files/qwen35-optimization-design.pdf"
     - organization: "华为 2012 实验室"
       title: "暑期实习 · 存内计算 PIM 任务调度研究"
       period: "2023.07 - 2023.09"
@@ -64,6 +70,16 @@ zh:
         - "构建覆盖真实应用和评估工具的基准集，并开发运行环境获取准确吞吐量。"
         - "结合鲲鹏 920 微架构改进 llvm-mca 在 AArch64 下的精度，成果发表于 HPCC 2022。"
   projects:
+    - title: "Intern-S2 Preview SFT 优化"
+      meta: "浦江实验室 · Qwen3.5-35B"
+      period: "2026.04 - 2026.06"
+      bullets:
+        - "定位 GDN 模块占开箱耗时 70%+，消除 causal_conv1d / KKT 路径中的 transpose，并将关键低效 Triton 实现替换或优化为 Ascend C。"
+        - "为 GDN 扩展 chunk size 128，优化 solve-tril、KKT、RMSNormGated 与 CV 核同步；通过绑核、去除双机 SP2 通信、融合 RMSNorm 和 CANN 升级完成框架侧优化。"
+        - "算子与框架联合优化，使 Intern-S2 Preview（Qwen3.5-35B）SFT 从 0.12× 提升至 0.72× H200。"
+      links:
+        - label: "阅读 Qwen3.5 优化技术报告（PDF）"
+          href: "files/qwen35-optimization-design.pdf"
     - title: "QuEST 多 GPU 量子门电路模拟"
       meta: "ASC20-21 世界大学生超级计算机竞赛"
       period: "2020.11 - 2021.05"
@@ -91,11 +107,11 @@ zh:
     - category: "编程"
       items: "C、C++、Python、Shell"
     - category: "AI 框架"
-      items: "PyTorch、torch_npu、Megatron、FSDP、verl"
+      items: "PyTorch、torch_npu、Megatron、FSDP、verl、vLLM"
     - category: "大模型系统"
-      items: "Ascend NPU 训练推理、多模态模型、RL 后训练、Expert Parallel、Attention INT8 量化"
+      items: "Ascend NPU 训练推理、多模态模型、RL 后训练、Expert Parallel、Triton、Ascend C、Attention INT8 量化"
     - category: "并行计算"
-      items: "MPI、OpenMP、CUDA、cuBLAS、多节点 CPU/GPU 优化"
+      items: "MPI、OpenMP、CUDA、cuBLAS、多节点 CPU/GPU/NPU 优化"
     - category: "体系结构"
       items: "Intel/ARM 指令集、AArch64、CPU 微架构、PIM、性能建模"
     - category: "性能分析"
@@ -117,7 +133,7 @@ zh:
 en:
   name: "Shaojie Tan"
   role: "AI Systems · Ascend Training & Inference · HPC"
-  summary: "Huawei Ascend training systems engineer with an M.S. in Computer Science from USTC. Focused on large-model training and inference optimization on Ascend NPUs, multimodal migration, distributed parallelism, reinforcement learning, and quantization, backed by computer-architecture and multi-node CPU/GPU optimization experience."
+  summary: "Huawei Ascend training systems engineer with an M.S. in Computer Science from USTC. Focused on large-model training and inference optimization on Ascend NPUs, multimodal migration, distributed parallelism, reinforcement learning, and quantization, backed by computer-architecture and multi-node CPU/GPU/NPU optimization experience."
   labels:
     language: "中文"
     download: "Download English PDF"
@@ -164,7 +180,13 @@ en:
       bullets:
         - "Optimized PyTorch / torch_npu training paths on Ascend NPUs, including fine-grained CPU affinity, operator Lazy Init, parameter tuning, and L2-cache utilization."
         - "Adapted OpenSoraPlan, DeepSeek-VL2, and GLM-4.1V with Megatron / FSDP; contributed to DeepSeek-R1 and Qwen3 large-EP inference and Attention INT8 quantization."
-        - "Adapted UniVL and verl + Qwen2.5-VL multimodal RL pipelines; raised a generative-model RL score from 0.4 to 0.8, doubled Intern-S1 Pro inference, and improved Intern-S2 Preview from 0.12× to 0.72× H200."
+        - "Adapted UniVL and verl + Qwen2.5-VL multimodal RL pipelines; adapted DanceGRPO and raised a generative-model RL score from 0.4 to 0.8."
+        - "Doubled Intern-S1 Pro inference through NPU-friendly GMM weight layouts and efficient post-processing; optimized GDN Triton kernels and the framework to improve Intern-S2 Preview (Qwen3.5-35B) SFT from 0.12× to 0.72× H200."
+      links:
+        - label: "XTuner + vLLM Technical Report"
+          href: "files/xtuner-vllm-rl-architecture-report.pdf"
+        - label: "Qwen3.5 Optimization Report"
+          href: "files/qwen35-optimization-design.pdf"
     - organization: "Huawei 2012 Laboratories"
       title: "Research Intern · PIM Task Scheduling"
       period: "Jul 2023 - Sep 2023"
@@ -180,6 +202,16 @@ en:
         - "Built a benchmark suite spanning real applications and evaluation tools, plus a runtime measurement system."
         - "Improved llvm-mca accuracy on AArch64 by modeling Kunpeng 920 microarchitecture; published at HPCC 2022."
   projects:
+    - title: "Intern-S2 Preview SFT Optimization"
+      meta: "Pujiang Lab · Qwen3.5-35B"
+      period: "Apr 2026 - Jun 2026"
+      bullets:
+        - "Profiled GDN at over 70% of out-of-box runtime, eliminated transpose overhead in causal_conv1d / KKT paths, and replaced or optimized key inefficient Triton implementations with Ascend C."
+        - "Added GDN chunk-size 128 support and optimized solve-tril, KKT, RMSNormGated, and CV-core synchronization; tuned CPU affinity, removed two-node SP2 communication, fused RMSNorm, and upgraded CANN."
+        - "Combined kernel and framework optimization improved Intern-S2 Preview (Qwen3.5-35B) SFT from 0.12× to 0.72× H200."
+      links:
+        - label: "Read the Qwen3.5 Optimization Report (PDF)"
+          href: "files/qwen35-optimization-design.pdf"
     - title: "Multi-GPU Quantum Circuit Simulation with QuEST"
       meta: "ASC20-21 Student Supercomputer Challenge"
       period: "Nov 2020 - May 2021"
@@ -207,11 +239,11 @@ en:
     - category: "Programming"
       items: "C, C++, Python, Shell"
     - category: "AI Frameworks"
-      items: "PyTorch, torch_npu, Megatron, FSDP, verl"
+      items: "PyTorch, torch_npu, Megatron, FSDP, verl, vLLM"
     - category: "LLM Systems"
-      items: "Ascend NPU training/inference, multimodal models, RL post-training, Expert Parallel, Attention INT8 quantization"
+      items: "Ascend NPU training/inference, multimodal models, RL post-training, Expert Parallel, Triton, Ascend C, Attention INT8 quantization"
     - category: "Parallel Computing"
-      items: "MPI, OpenMP, CUDA, cuBLAS, multi-node CPU/GPU optimization"
+      items: "MPI, OpenMP, CUDA, cuBLAS, multi-node CPU/GPU/NPU optimization"
     - category: "Architecture"
       items: "Intel/ARM ISA, AArch64, CPU microarchitecture, PIM, performance modeling"
     - category: "Performance"

@@ -214,6 +214,18 @@ time { flex: 0 0 auto; color: #405a70; font-size: 0.8rem; font-weight: 750; }
 .entry ul { margin: 7px 0 0; padding-left: 1.2em; color: #344e63; font-size: 0.86rem; }
 .entry li + li { margin-top: 3px; }
 .entry li::marker { color: var(--blue); }
+.entry-links { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 9px; }
+.entry-links a {
+  padding: 4px 9px;
+  border: 1px solid #bdd6e8;
+  border-radius: 999px;
+  color: var(--blue-dark);
+  background: var(--blue-soft);
+  font-size: 0.73rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+.entry-links a:hover { border-color: var(--blue); color: var(--blue); }
 
 .resume-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
 .skill-list, .award-list { display: grid; gap: 9px; }
@@ -301,6 +313,8 @@ time { flex: 0 0 auto; color: #405a70; font-size: 0.8rem; font-weight: 750; }
   .entry-heading p { margin-top: 0.2mm; font-size: 6.8pt; }
   .entry ul { margin-top: 0.8mm; font-size: 7.1pt; line-height: 1.25; }
   .entry li + li { margin-top: 0.3mm; }
+  .entry-links { gap: 1mm; margin-top: 0.7mm; }
+  .entry-links a { padding: 0.4mm 1.2mm; font-size: 6.2pt; }
   .resume-grid { gap: 5mm; }
   .skill-list, .award-list { gap: 1mm; }
   .skill-list strong, .award-list strong { font-size: 7.2pt; }
