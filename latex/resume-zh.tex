@@ -33,7 +33,7 @@
 \begin{itemize}
   \item 优化 PyTorch / torch\_npu 训练链路，覆盖细粒度 CPU 绑核、算子 Lazy Init、参数寻优和 L2 Cache；完成 OpenSoraPlan、DeepSeek-VL2、GLM-4.1V 的 Megatron / FSDP 适配。
   \item 参与 DeepSeek-R1、Qwen3 大 EP 推理与 Attention INT8 量化；适配 UniVL、verl + Qwen2.5-VL 及 DanceGRPO，将生成模型 RL 分数由 0.4 提升至 0.8。
-  \item 通过 NPU 亲和的 GMM 权重布局与高效后处理，使 Intern-S1 Pro 推理性能翻倍（\ResumeUrl{https://kirrito-k423.github.io/ResumeOnline/files/xtuner-vllm-rl-architecture-report.pdf}{技术报告}）；通过 GDN Triton 算子和框架优化，使 Intern-S2 Preview（Qwen3.5-35B）SFT 从 0.12 倍提升至 0.72 倍 H200（\ResumeUrl{https://kirrito-k423.github.io/ResumeOnline/files/qwen35-optimization-design.pdf}{技术报告}）。
+  \item 通过 GMM 和后处理高效计算，使 Intern-S1 Pro 推理性能翻倍（\ResumeUrl{https://kirrito-k423.github.io/ResumeOnline/files/xtuner-vllm-rl-architecture-report.pdf}{技术报告}）；通过 GDN Triton 算子和框架优化，使 Intern-S2 Preview（Qwen3.5-35B）SFT 从 0.12 倍提升至 0.72 倍 H200（\ResumeUrl{https://kirrito-k423.github.io/ResumeOnline/files/qwen35-optimization-design.pdf}{技术报告}）。
 \end{itemize}
 
 \ResumeItem{华为 2012 实验室}[暑期实习 · 存内计算 PIM 任务调度研究][2023.07--2023.09]
